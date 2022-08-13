@@ -1,13 +1,14 @@
 {
   "name": "@mypleaks/auth-common",
-  "version": "1.0.1",
+  "version": "1.0.5",
   "publishConfig": {
     "registry": "http://npm.pkg.github.com/@mypleaks"
   },
   "files": [
     "dist"
   ],
-  "main": "dist/index.js",
+  "main": "dist/auth-common.module.js",
+  "types": "dist/auth-common.module.d.ts",
   "scripts": {
     "build": "rimraf dist && tsc",
     "prepublish": "npm run build"
@@ -23,7 +24,7 @@
   },
   "homepage": "https://github.com/myPleaks/auth-common#readme",
   "dependencies": {
-    "@mypleaks/ms-models": "^1.0.5",
+    "@mypleaks/ms-models": "^1.0.6",
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/jwt": "^9.0.0",
