@@ -1,0 +1,41 @@
+{
+  "name": "@mypleaks/auth-common",
+  "version": "1.0.1",
+  "publishConfig": {
+    "registry": "http://npm.pkg.github.com/@mypleaks"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rimraf dist && tsc",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/myPleaks/auth-common.git"
+  },
+  "author": "DESH RAJ",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/myPleaks/auth-common/issues"
+  },
+  "homepage": "https://github.com/myPleaks/auth-common#readme",
+  "dependencies": {
+    "@mypleaks/ms-models": "^1.0.5",
+    "@nestjs/common": "^9.0.0",
+    "@nestjs/core": "^9.0.0",
+    "@nestjs/jwt": "^9.0.0",
+    "@nestjs/passport": "^9.0.0",
+    "@nestjs/platform-express": "^9.0.0",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^3.0.2",
+    "rxjs": "^7.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.6.3",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.7.4"
+  }
+}

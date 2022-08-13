@@ -1,0 +1,29 @@
+name: auth-common
+
+on:
+  push:
+    branches: [ "master" ]
+
+env:
+  NPM_GITHUB_REGISTRY_TOKEN: ${{ secrets.NPM_GITHUB_REGISTRY_TOKEN }}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout to repository
+        uses: actions/checkout@v3
+      - name: Create .npmrc file
+        run: 'echo -e "//npm.pkg.github.com/:_authToken=$NPM_GITHUB_REGISTRY_TOKEN \n@mypleaks:registry=https://npm.pkg.github.com/" > /home/runner/work/auth-common/auth-common/.npmrc'
+        shell: bash
+      - name: install and build
+        run: npm ci
+      - name: publish to registry
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@mypleaks'
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
